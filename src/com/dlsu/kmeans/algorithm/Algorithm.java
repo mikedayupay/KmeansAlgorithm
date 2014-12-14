@@ -1,5 +1,9 @@
 package com.dlsu.kmeans.algorithm;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,6 +18,8 @@ public class Algorithm {
 	private int k = 10;
 	private ArrayList<Music> musicSample = new ArrayList<Music>();
 	private Cluster[] clusters = new Cluster[k];
+	private String filename1 = "initialClusters.csv";
+	private String filename2 = "finalClusters.csv";
 	
 	public Algorithm() {
 		
@@ -57,9 +63,10 @@ public class Algorithm {
 		}while (pass != 100);
 		
 		System.out.println("----------------------------------------------------------");
-		for(int i = 0; i < clusters[1].getClusterMembers().size(); i++)
-			System.out.println(clusters[1].getClusterMembers().get(i).getMusicGenre());
+		for(int i = 0; i < clusters[0].getClusterMembers().size(); i++)
+			System.out.println(clusters[0].getClusterMembers().get(i).getMusicGenre());
 		
+		outputToFile(filename2);
 	}
 	
 	/*initializes all the clusters*/
@@ -88,11 +95,170 @@ public class Algorithm {
 			clusters[flag].insertClusterMembers(musicSample.get(a)); //insert music sample to nearest cluster centroid
 		}
 		
+		outputToFile(filename1);
 	}
 	
 	
-	public void outputToFile() {
+	public void outputToFile(String filename) {
+		String outputFile = filename;
+		boolean alreadyExists = new File(outputFile).exists();
 		
+		try {
+			
+			File file = new File(outputFile);
+			if(!alreadyExists){
+				file.createNewFile();
+			}
+			
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			
+			
+			fw.append(clusters[0].getClusterLabel());
+			for(int i = 0; i < clusters[0].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[0].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[0].getClusterLabel());
+			for(int i = 0; i < clusters[0].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[0].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[1].getClusterLabel());
+			for(int i = 0; i < clusters[1].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[1].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[1].getClusterLabel());
+			for(int i = 0; i < clusters[1].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[1].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[2].getClusterLabel());
+			for(int i = 0; i < clusters[2].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[2].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[2].getClusterLabel());
+			for(int i = 0; i < clusters[2].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[2].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[3].getClusterLabel());
+			for(int i = 0; i < clusters[3].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[3].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[3].getClusterLabel());
+			for(int i = 0; i < clusters[3].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[3].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[4].getClusterLabel());
+			for(int i = 0; i < clusters[4].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[4].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[4].getClusterLabel());
+			for(int i = 0; i < clusters[4].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[4].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[5].getClusterLabel());
+			for(int i = 0; i < clusters[5].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[5].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[5].getClusterLabel());
+			for(int i = 0; i < clusters[5].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[5].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[6].getClusterLabel());
+			for(int i = 0; i < clusters[6].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[6].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[6].getClusterLabel());
+			for(int i = 0; i < clusters[6].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[6].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[7].getClusterLabel());
+			for(int i = 0; i < clusters[7].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[7].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[7].getClusterLabel());
+			for(int i = 0; i < clusters[7].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[7].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[8].getClusterLabel());
+			for(int i = 0; i < clusters[8].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[8].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[8].getClusterLabel());
+			for(int i = 0; i < clusters[8].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[8].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.append(clusters[9].getClusterLabel());
+			for(int i = 0; i < clusters[9].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[9].getClusterMembers().get(i).getMusicName());
+			}
+			fw.append("\n");
+			
+			fw.append(clusters[9].getClusterLabel());
+			for(int i = 0; i < clusters[9].getClusterMembers().size(); i++) {
+				fw.append(",");
+				fw.append(clusters[9].getClusterMembers().get(i).getMusicGenre());
+			}
+			fw.append("\n\n");
+			
+			fw.flush();
+			fw.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
