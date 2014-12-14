@@ -19,7 +19,7 @@ public class Cluster {
 	}
 	
 	public void setClusterCentroid() {
-		double[][] musicAttr = new double[1000][69];
+		double[][] musicAttr = new double[clusterMembers.size()][69];
 		double[] total = new double[69];
 		
 		for(int i = 0 ; i < musicAttr.length; i++) {
