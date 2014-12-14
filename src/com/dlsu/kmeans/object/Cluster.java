@@ -26,7 +26,7 @@ public class Cluster {
 			musicAttr[i] = clusterMembers.get(i).getMusicAttr();
 		}
 		
-		for(int j = 0; j < musicAttr[0].length; j++) {
+		for(int j = 0; j < 69; j++) {
 			for(int i = 0; i < musicAttr.length; i++) {
 				total[j] += musicAttr[i][j];
 			}
