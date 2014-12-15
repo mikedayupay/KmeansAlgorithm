@@ -62,10 +62,6 @@ public class Algorithm {
 			pass++;
 		}while (pass != 100);
 		
-		System.out.println("----------------------------------------------------------");
-		for(int i = 0; i < clusters[0].getClusterMembers().size(); i++)
-			System.out.println(clusters[0].getClusterMembers().get(i).getMusicGenre());
-		
 		outputToFile(filename2);
 	}
 	

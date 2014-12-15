@@ -29,7 +29,7 @@ public class Music {
 		double[] sqrDist = new double[69];
 		double total = 0;
 		for(int i = 0; i < this.musicAttr.length; i++) {
-			sqrDist[i] = Math.pow((this.musicAttr[i] + centroidAttr[i]), 2);
+			sqrDist[i] = Math.pow((this.musicAttr[i] - centroidAttr[i]), 2);
 		}
 		
 		for(int i = 0; i < this.musicAttr.length; i++) {
